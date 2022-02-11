@@ -79,9 +79,11 @@ const books = [
   }
 ];
 
+
+Book.deleteMany().then(
 Book.create(books)
   .then(booksFromDB => {
     console.log(`Created ${booksFromDB.length} books`);
     mongoose.connection.close();
-  })
+  }))
   .catch(err => console.log(`An error occurred while creating books: ${err}`));
